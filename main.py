@@ -44,4 +44,4 @@ while continuidade_sistema:
     elif opção == 6:
         time.sleep(0.2)
         continuidade_sistema = False
-        print("Sistema encerrado, muito obrigado!")
+        print("Sistema encerrado, muito obrigado por ter utilizado!")
