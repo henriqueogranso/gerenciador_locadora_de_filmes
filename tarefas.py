@@ -1,16 +1,19 @@
 from dados import titulo, reservas
-from utils import linha, mensagem 
+from utils import mensagem 
 def cadastrar():
+        # cria um cadastro selecionando pares de chaves em dicionários.
         mensagem('cadastrar')
         nome = input("digite o nome do filme:")
         genero = input("digite o genero do filme:")
         ano = input("digite o ano do filme:")
         duracao = input("digite a duração do filme:")
         titulo[nome] = {"genero": genero, "ano": ano, "duracao": duracao, "status": 'disponível'}
+        # nome representa o filme no caso do madagacar dentro do dicionário titulo, e adiciona ao dicionário conforme o usuário digitar.
         print("cadastro realizado com sucesso!")
 
 
 def consultar():
+        # mesmo princípio adiciona no dicionário 
         nome = input("digite o nome do filme que deseja consultar:")
         if nome in titulo:
             print(f"nome: {nome}")
@@ -28,6 +31,7 @@ def reservar():
         data_vencimento = input("digite a data de vencimento da reserva:")
 
         if nome in titulo:
+            # verifica o nome do filme dentro do dicionário de titulo
             if nome not in reservas:
                 reservas[nome]= {'nome_cliente': nome_cliente, 'data_reserva': data_reserva, 'data_vencimento': data_vencimento}
                 titulo[nome]['status']= 'reservado'
@@ -35,6 +39,7 @@ def reservar():
             else:
                 print(f"o filme ja foi reservado por {reservas[nome]['nome_cliente']} e vence em {reservas[nome]['data_vencimento']}")
         else:
+            # se caso o nome digitado não for encontrado dentro de titulo 
             print("filme não encontrado.")
 
 def devolução():
