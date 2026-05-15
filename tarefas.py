@@ -60,5 +60,3 @@ def catalogo_reservas():
         print(f"data de vencimento: {reservas[nome]['data_vencimento']}")
         
         
-#for chave, valor in aluno.items():
-#   print(f"{chave}: {valor}")
