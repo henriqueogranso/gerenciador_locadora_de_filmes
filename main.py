@@ -3,7 +3,7 @@ from tarefas import cadastrar, consultar, reservar, devolução, catalogo_reserv
 from utils import mensagem
  
 continuidade_sistema = True
-print("Bem-vindo ao sistema de locação de filmes!")
+print("Bem-vindo ao sistema de locação de filmes!!")
  
 while continuidade_sistema:
     mensagem('Menu Principal')
