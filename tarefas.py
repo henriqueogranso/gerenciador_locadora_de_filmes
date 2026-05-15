@@ -43,12 +43,17 @@ def reservar():
             print("filme não encontrado.")
 
 def devolução():
+     # função de devolução tem o mesmo princípio de reservar.
      nome = input("digite o nome do filme que deseja devolver:")
      if nome in reservas:
+            # verifica nome digitado dentro de reservas 
             opção = input("deseja realmente devolver o filme? (s/n)")
+            # Da uma opção do usuário se ele realmente quer devolver.
             if opção.lower() == 's':
                 del reservas[nome]
+                # deleta o nome de reservas
                 titulo[nome]['status']= 'disponível'
+                # altera o status de reservados para disponível no dicionário de titulo.
                 print("devolução realizada com sucesso!")
             else:
                 print("devolução cancelada.")
