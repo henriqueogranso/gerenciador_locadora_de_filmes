@@ -12,6 +12,7 @@ def cadastrar():
             print("cadastro realizado com sucesso!")
         else:
             print("filme já cadastrado.")
+            print("o thiago usou o meu código")
         # nome representa o filme no caso do madagacar dentro do dicionário titulo, e adiciona ao dicionário conforme o usuário digitar.
         
 
