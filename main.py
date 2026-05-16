@@ -1,9 +1,12 @@
 import time
 from tarefas import cadastrar, consultar, reservar, devolução, catalogo_reservas
 from utils import mensagem
+
+# importando funções de outras páginas 
  
 continuidade_sistema = True
-print("Bem-vindo ao sistema de locação de filmes!")
+print("Bem-vindo ao sistema de locação de filmes!!")
+#apresentação do sistema 
  
 while continuidade_sistema:
     mensagem('Menu Principal')
@@ -14,9 +17,11 @@ while continuidade_sistema:
     print("5. Catálogo de filmes reservados")
     print("6. Sair")
     time.sleep(0.2)
+    # almanetando o delay na execução do sistema.
  
     opção = int(input("Digite a opção desejada: "))
     verf = [1, 2, 3, 4, 5, 6]
+    # verificação para se caso a pessoa digite uma opção errada no sistema.
  
     if opção not in verf:
         print("Opção inválida, tente novamente.")

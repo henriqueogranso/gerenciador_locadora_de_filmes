@@ -1,16 +1,24 @@
 from dados import titulo, reservas
-from utils import linha, mensagem 
+from utils import mensagem, linha
 def cadastrar():
         mensagem('cadastrar')
         nome = input("digite o nome do filme:")
-        genero = input("digite o genero do filme:")
-        ano = input("digite o ano do filme:")
-        duracao = input("digite a duração do filme:")
-        titulo[nome] = {"genero": genero, "ano": ano, "duracao": duracao, "status": 'disponível'}
-        print("cadastro realizado com sucesso!")
+        # cria um cadastro selecionando pares de chaves em dicionários.
+        if nome not in titulo:
+            genero = input("digite o genero do filme:")
+            ano = input("digite o ano do filme:")
+            duracao = input("digite a duração do filme:")
+            titulo[nome] = {"genero": genero, "ano": ano, "duracao": duracao, "status": 'disponível'}
+            print("cadastro realizado com sucesso!")
+        else:
+            print("filme já cadastrado.")
+        # nome representa o filme no caso do madagacar dentro do dicionário titulo, e adiciona ao dicionário conforme o usuário digitar.
+        
 
 
 def consultar():
+        # mesmo princípio adiciona no dicionário 
+        mensagem('consultar')
         nome = input("digite o nome do filme que deseja consultar:")
         if nome in titulo:
             print(f"nome: {nome}")
@@ -22,12 +30,14 @@ def consultar():
             print("filme não encontrado.")
 
 def reservar():
+        mensagem('reservar')
         nome = input("digite o nome do filme que deseja reservar:")
         nome_cliente = input("digite o nome do cliente:")
         data_reserva = input("digite a data da reserva:")
         data_vencimento = input("digite a data de vencimento da reserva:")
 
         if nome in titulo:
+            # verifica o nome do filme dentro do dicionário de titulo
             if nome not in reservas:
                 reservas[nome]= {'nome_cliente': nome_cliente, 'data_reserva': data_reserva, 'data_vencimento': data_vencimento}
                 titulo[nome]['status']= 'reservado'
@@ -35,15 +45,22 @@ def reservar():
             else:
                 print(f"o filme ja foi reservado por {reservas[nome]['nome_cliente']} e vence em {reservas[nome]['data_vencimento']}")
         else:
+            # se caso o nome digitado não for encontrado dentro de titulo 
             print("filme não encontrado.")
 
 def devolução():
+     mensagem('devolução')     
+     # função de devolução tem o mesmo princípio de reservar.
      nome = input("digite o nome do filme que deseja devolver:")
      if nome in reservas:
+            # verifica nome digitado dentro de reservas 
             opção = input("deseja realmente devolver o filme? (s/n)")
+            # Da uma opção do usuário se ele realmente quer devolver.
             if opção.lower() == 's':
                 del reservas[nome]
+                # deleta o nome de reservas
                 titulo[nome]['status']= 'disponível'
+                # altera o status de reservados para disponível no dicionário de titulo.
                 print("devolução realizada com sucesso!")
             else:
                 print("devolução cancelada.")
@@ -58,7 +75,6 @@ def catalogo_reservas():
         print(f"nome do cliente: {reservas[nome]['nome_cliente']}") 
         print(f"data da reserva: {reservas[nome]['data_reserva']}")
         print(f"data de vencimento: {reservas[nome]['data_vencimento']}")
+        linha()
         
         
-#for chave, valor in aluno.items():
-#   print(f"{chave}: {valor}")
