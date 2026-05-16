@@ -14,6 +14,7 @@ def cadastrar():
 
 def consultar():
         # mesmo princípio adiciona no dicionário 
+        mensagem('consultar')
         nome = input("digite o nome do filme que deseja consultar:")
         if nome in titulo:
             print(f"nome: {nome}")
@@ -25,6 +26,7 @@ def consultar():
             print("filme não encontrado.")
 
 def reservar():
+        mensagem('reservar')
         nome = input("digite o nome do filme que deseja reservar:")
         nome_cliente = input("digite o nome do cliente:")
         data_reserva = input("digite a data da reserva:")
@@ -43,6 +45,7 @@ def reservar():
             print("filme não encontrado.")
 
 def devolução():
+     mensagem('devolução')     
      # função de devolução tem o mesmo princípio de reservar.
      nome = input("digite o nome do filme que deseja devolver:")
      if nome in reservas:
