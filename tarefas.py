@@ -4,7 +4,11 @@ from utils import mensagem, linha
 
 def cadastrar():
     mensagem('cadastrar')
+<<<<<<< HEAD
     nome = input("digite o nome do filme:")
+=======
+    nome = input("digite o nome do filme:").strip().lower() #v: adicionei o strip e lower para evitar erros de digitação
+>>>>>>> teste_sistema
     # cria um cadastro selecionando pares de chaves em dicionários.
     if nome not in titulo:
         genero = input("digite o genero do filme:")
@@ -24,7 +28,11 @@ def cadastrar():
 def consultar():
     # mesmo princípio adiciona no dicionário 
     mensagem('consultar')
+<<<<<<< HEAD
     nome = input("digite o nome do filme que deseja consultar:")
+=======
+    nome = input("digite o nome do filme que deseja consultar:").strip().lower() #v: adicionei o strip e lower para evitar erros de digitação
+>>>>>>> teste_sistema
     if nome in titulo:
         print(f"nome: {nome}")
         print(f"genero: {titulo[nome]['genero']}")
@@ -43,8 +51,8 @@ def listar_catalogo():
 
 def reservar():
         mensagem('reservar')
-        nome = input("digite o nome do filme que deseja reservar:")
-        nome_cliente = input("digite o nome do cliente:")
+        nome = input("digite o nome do filme que deseja reservar:").strip().lower()#v: adicionei o strip e lower para evitar erros de digitação
+        nome_cliente = input("digite o nome do cliente:").strip().lower()
         data_reserva = input("digite a data da reserva:")
         data_vencimento = input("digite a data de vencimento da reserva:")
 
@@ -66,19 +74,34 @@ def reservar():
 def devolucao():
     mensagem('devolução')     
     # função de devolução tem o mesmo princípio de reservar.
+<<<<<<< HEAD
     nome = input("digite o nome do filme que deseja devolver:")
+=======
+    nome = input("digite o nome do filme que deseja devolver:").strip().lower()#v: adicionei o strip e lower para evitar erros de digitação
+>>>>>>> teste_sistema
     if nome in reservas:
         # verifica nome digitado dentro de reservas 
         opção = input("deseja realmente devolver o filme? (s/n)")
         # Da uma opção do usuário se ele realmente quer devolver.
         if opção.lower() == 's':
             del reservas[nome]
+<<<<<<< HEAD
             # deleta o nome de reservas
             titulo[nome]['status']= 'disponível'
             # altera o status de reservados para disponível no dicionário de titulo.
             pilha_devolucoes.append(nome)
             # H: adicionei a pilha_devolucoes
             fila_reservas.append(nome)
+=======
+            if nome in titulo:#V: corrijido o bug de não verificar se o filme existe em titulo antes de alterar o status
+            # deleta o nome de reservas
+                titulo[nome]['status']= 'disponível'
+            # altera o status de reservados para disponível no dicionário de titulo.
+            pilha_devolucoes.append(nome)
+            # H: adicionei a pilha_devolucoes
+            if nome not in fila_reservas:
+                fila_reservas.append(nome)
+>>>>>>> teste_sistema
             # H: adicionei a fila_reservas
             print("devolução realizada com sucesso!")
         else:

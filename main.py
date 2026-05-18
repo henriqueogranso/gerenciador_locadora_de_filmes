@@ -29,10 +29,13 @@ while continuidade_sistema:
         continue
     # H: Adicionei o try/except para aparecer mensagem caso a pessoa digite letra
     
+<<<<<<< HEAD
     verf = [1, 2, 3, 4, 5, 6, 7, 8]
+=======
+>>>>>>> teste_sistema
     # verificação para se caso a pessoa digite uma opção errada no sistema.
  
-    if opção not in verf:
+    if opção not in range(1, 9):
         print("Opção inválida, tente novamente.")
  
     elif opção == 1:
