@@ -22,7 +22,7 @@ def cadastrar():
 
 
 def consultar():
-    # mesmo princípio adiciona no dicionário 
+    # mesmo princípio adiciona no dicionário. 
     mensagem('consultar')
     nome = input("digite o nome do filme que deseja consultar:").strip().lower() #v: adicionei o strip e lower para evitar erros de digitação
     if nome in titulo:
