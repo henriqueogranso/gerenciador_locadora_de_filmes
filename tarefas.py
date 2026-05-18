@@ -43,7 +43,7 @@ def listar_catalogo():
 
 def reservar():
         mensagem('reservar')
-        nome = input("digite o nome do filme que deseja reservar:").strip().lower()#v: adicionei o strip e lower para evitar erros de digitação
+        nome = input("digite o nome do filme que deseja reservar:").strip().lower()#v:. adicionei o strip e lower para evitar erros de digitação
         nome_cliente = input("digite o nome do cliente:").strip().lower()
         data_reserva = input("digite a data da reserva:")
         data_vencimento = input("digite a data de vencimento da reserva:")
