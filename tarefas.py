@@ -44,31 +44,32 @@ def listar_catalogo():
 def reservar():
         mensagem('reservar')
         nome = input("digite o nome do filme que deseja reservar:").strip().lower()#v:. adicionei o strip e lower para evitar erros de digitação
+        if nome not in titulo:
+            print("filme não encontrado.")
+            return
+        if nome in reservas:
+            print("filme já reservado.")
+            return
         nome_cliente = input("digite o nome do cliente:").strip().lower()
         data_reserva = input("digite a data da reserva:")
         data_vencimento = input("digite a data de vencimento da reserva:")
-
-        if nome in titulo:
-            # verifica o nome do filme dentro do dicionário de titulo
-            if nome not in reservas:
-                reservas[nome]= {'nome_cliente': nome_cliente, 'data_reserva': data_reserva, 'data_vencimento': data_vencimento}
-                titulo[nome]['status']= 'reservado'
-                # H: adicionei o if de fila_reservas
-                if nome in fila_reservas:
-                    fila_reservas.remove(nome)
-                print("reserva realizada com sucesso!")
-            else:
-                print(f"o filme ja foi reservado por {reservas[nome]['nome_cliente']} e vence em {reservas[nome]['data_vencimento']}")
-        else:
-            # se caso o nome digitado não for encontrado dentro de titulo 
-            print("filme não encontrado.")
+        reservas[nome] = {"nome_cliente": nome_cliente, "data_reserva": data_reserva, "data_vencimento": data_vencimento}
+        titulo[nome]['status'] = 'reservado'
+        if nome in fila_reservas:
+            fila_reservas.remove(nome)
+        print("reserva realizada com sucesso!")
+            
 
 def devolucao():
     mensagem('devolução')     
     # função de devolução tem o mesmo princípio de reservar.
     nome = input("digite o nome do filme que deseja devolver:").strip().lower()#v: adicionei o strip e lower para evitar erros de digitação
     if nome in reservas:
-        # verifica nome digitado dentro de reservas 
+        # verifica nome digitado dentro de reservas
+        verf_nome_cliente = input("digite o nome do cliente para confirmar a devolução:").strip().lower() #v: adicionei o strip e lower para evitar erros de digitação
+        if verf_nome_cliente != reservas[nome]['nome_cliente']:
+            print("nome do cliente não confere, devolução cancelada.")
+            return
         opção = input("deseja realmente devolver o filme? (s/n)")
         # Da uma opção do usuário se ele realmente quer devolver.
         if opção.lower() == 's':
