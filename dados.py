@@ -5,8 +5,7 @@ titulo={'madagascar': {'genero': 'animação','ano':2005,'duracao': '1h30m', 'st
         }
 reservas = {}
 # H fiz esses de baixo
-filmes = ['madagascar', 'pinguins', 'kung fu panda']
-fila_reservas = ['madagascar', 'kung fu panda']
+filmes = ['madagascar', 'kung fu panda']
 fila_reservas = [f for f in filmes if titulo[f]['status'] == 'disponível']
 pilha_devolucoes = []
 status_opcoes = ('disponível', 'reservado', 'indisponível')
